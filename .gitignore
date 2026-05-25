@@ -19,3 +19,10 @@ Thumbs.db
 
 # Vercel
 .vercel/
+
+# Docs / planning artifacts
+telegram-agent-bot-plan.md
+PRD-job-searcher.md
+
+# Claude Code
+.claude/
