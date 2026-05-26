@@ -9,14 +9,17 @@ const commands = [
   { command: "jobs_resume", description: "Resume scheduled job search" },
 ];
 
-const res = await fetch(
-  `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/setMyCommands`,
-  {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ commands }),
-  }
-);
+async function main() {
+  const res = await fetch(
+    `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/setMyCommands`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ commands }),
+    }
+  );
+  const data = await res.json();
+  console.log(data.ok ? "✅ Commands set." : `❌ Failed: ${JSON.stringify(data)}`);
+}
 
-const data = await res.json();
-console.log(data.ok ? "✅ Commands set." : `❌ Failed: ${JSON.stringify(data)}`);
+main();
