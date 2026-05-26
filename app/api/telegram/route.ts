@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSettings, updateSettings } from "@/lib/supabase";
 import { sendMessage } from "@/lib/telegram";
-import { main as runScraper } from "@/agents/job-scraper";
+import { triggerScraper } from "@/lib/github";
 
 const SETUP_USAGE = [
   "*Job Search Setup*",
@@ -120,8 +120,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   switch (command) {
     case "/jobs":
-      await sendMessage(chatId, "🔄 Running job search now... Results will follow shortly.");
-      void runScraper();
+      await triggerScraper();
+      await sendMessage(chatId, "🔄 Job search started. Results will arrive shortly.");
       break;
     case "/jobs_status":
       await sendMessage(chatId, formatStatus(await getSettings()));
