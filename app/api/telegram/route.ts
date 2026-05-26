@@ -17,7 +17,7 @@ const SETUP_USAGE = [
 
 function formatStatus(settings: Awaited<ReturnType<typeof getSettings>>): string {
   return [
-    "*Job Search Status*",
+    "<b>Job Search Status</b>",
     "",
     `🔍 Keywords: ${settings.keywords}`,
     `🌍 Countries: ${settings.countries.join(", ")}`,
@@ -124,7 +124,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       await sendMessage(chatId, "🔄 Job search started. Results will arrive shortly.");
       break;
     case "/jobs_status":
-      await sendMessage(chatId, formatStatus(await getSettings()));
+      await sendMessage(chatId, formatStatus(await getSettings()), "HTML");
       break;
     case "/jobs_pause":
       await updateSettings({ schedule_paused: true });
