@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "scrape": "tsx agents/job-scraper.ts",
-    "setup-commands": "tsx scripts/setup-telegram-commands.ts"
+    "setup-commands": "tsx scripts/setup-telegram-commands.ts",
+    "dev:bot": "tsx scripts/dev-bot.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
