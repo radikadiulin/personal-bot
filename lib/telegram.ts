@@ -11,7 +11,7 @@ export async function sendMessage(
       body: JSON.stringify({
         chat_id: chatId,
         text,
-        parse_mode: parseMode ?? "Markdown",
+        ...(parseMode && { parse_mode: parseMode }),
         disable_web_page_preview: false,
       }),
     }

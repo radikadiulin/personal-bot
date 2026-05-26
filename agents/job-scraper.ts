@@ -33,12 +33,12 @@ export async function main(): Promise<void> {
 
   if (settings.notification_style === "per_job") {
     for (const job of batch) {
-      await sendMessage(chatId, formatJob(job));
+      await sendMessage(chatId, formatJob(job), "HTML");
     }
   } else {
     if (batch.length > 0) {
       const digest = batch.map(formatJob).join("\n\n---\n\n");
-      await sendMessage(chatId, digest);
+      await sendMessage(chatId, digest, "HTML");
     }
   }
 

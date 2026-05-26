@@ -19,7 +19,7 @@ function postedLine(postedAt: Date): string {
 
 export function formatJob(job: Job): string {
   const lines: string[] = [];
-  lines.push(`*${job.title}* — ${job.company}`);
+  lines.push(`<b>${job.title}</b> — ${job.company}`);
   lines.push("");
   lines.push(`📍 ${job.location} | ${titleCase(job.source)}`);
   if (job.salary) {
@@ -29,6 +29,6 @@ export function formatJob(job: Job): string {
     lines.push(postedLine(job.postedAt));
   }
   lines.push("");
-  lines.push(`[View Job →](${job.url})`);
+  lines.push(`<a href="${job.url}">View Job →</a>`);
   return lines.join("\n");
 }
