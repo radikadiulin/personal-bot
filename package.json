@@ -8,7 +8,9 @@
     "start": "next start",
     "scrape": "tsx agents/job-scraper.ts",
     "setup-commands": "tsx scripts/setup-telegram-commands.ts",
-    "dev:bot": "tsx scripts/dev-bot.ts"
+    "dev:bot": "tsx scripts/dev-bot.ts",
+    "webhook:set": "tsx scripts/webhook-set.ts",
+    "webhook:delete": "tsx scripts/webhook-delete.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
