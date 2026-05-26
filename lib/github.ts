@@ -11,7 +11,7 @@ export async function triggerScraper(): Promise<void> {
         "X-GitHub-Api-Version": "2022-11-28",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ref: "main" }),
+      body: JSON.stringify({ ref: "main", inputs: { force: "true" } }),
     }
   );
   if (!res.ok) {

@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 9 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Skip schedule interval check"
+        required: false
+        default: "false"
 
 jobs:
   scrape:
@@ -15,6 +20,7 @@ jobs:
       SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
       ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
       ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+      FORCE_RUN: ${{ github.event.inputs.force }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

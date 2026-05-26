@@ -9,7 +9,8 @@ import { sendMessage } from "@/lib/telegram";
 export async function main(): Promise<void> {
   const settings = await getSettings();
 
-  if (!shouldRun(settings, new Date())) {
+  const force = process.env.FORCE_RUN === "true";
+  if (!force && !shouldRun(settings, new Date())) {
     console.log("Skipping: paused or interval not elapsed");
     return;
   }
