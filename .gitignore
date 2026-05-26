@@ -1,7 +1,17 @@
 # Environment
 .env
+.env.*
 .env.local
 .env.*.local
+
+# Credentials / secrets
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+service-account*.json
 
 # Node
 node_modules/
