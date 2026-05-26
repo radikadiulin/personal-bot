@@ -33,6 +33,7 @@ Thumbs.db
 # Docs / planning artifacts
 telegram-agent-bot-plan.md
 PRD-job-searcher.md
+docs/
 
 # Claude Code
 .claude/
